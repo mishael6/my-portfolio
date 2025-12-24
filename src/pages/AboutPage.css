@@ -1,0 +1,216 @@
+.about-section {
+    min-height: 100vh;
+    padding: 120px 60px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    flex: 1;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.338);
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.about-paragraph {
+    width: 80%;
+    margin-top: 10px;
+}
+
+.about-image {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.skills-section {
+    margin-top: 20px;
+    width: 80%;
+}
+
+.skills-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.skill-item p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.message-button {
+    margin-top: 30px;
+}
+
+/* Add these at the end of your AboutPage.css */
+
+/* Light mode styles */
+body.light-mode .about-section {
+    background: #FC990F83;
+    background: linear-gradient(127deg,rgba(252, 153, 15, 1) 36%, rgba(255, 255, 255, 1) 57%);
+    color: #333;
+}
+
+body.light-mode .about-content {
+    background: rgba(255, 255, 255, 0.205);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .about-content h1 {
+    color: white;
+}
+
+body.light-mode .about-content h2 {
+    color: white;
+}
+
+body.light-mode .about-paragraph {
+    color: white;
+}
+
+body.light-mode .skill-item p {
+    color: white;
+}
+
+/* Tablet and below */
+@media (max-width: 968px) {
+    .about-section {
+        padding: 100px 40px 40px;
+        gap: 40px;
+    }
+
+    .about-content {
+        max-width: 450px;
+    }
+
+    .profile-image {
+        max-width: 300px;
+    }
+}
+
+/* Mobile landscape and below */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        padding: 100px 30px 40px;
+        gap: 30px;
+    }
+
+    .about-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+
+    .about-image {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .profile-image {
+        max-width: 250px;
+    }
+
+    .skills-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .about-section {
+        padding: 80px 20px 30px;
+    }
+
+    .about-content {
+        padding: 25px 15px;
+    }
+
+    .about-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-paragraph {
+        width: 90%;
+    }
+
+    .skills-section {
+        width: 90%;
+    }
+
+    .skills-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        gap: 15px;
+    }
+
+    .skill-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .skill-item p {
+        font-size: 0.8rem;
+    }
+
+    .profile-image {
+        max-width: 200px;
+    }
+}

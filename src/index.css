@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /*background: url(assets/programmer\ \(2\).jpg);*/
+  /*background: rgba(0, 0, 0, 0.932);*/
+  background: #FC990F83;
+  background: linear-gradient(142deg,rgba(252, 153, 15, 1) 0%, rgba(0, 0, 0, 1) 70%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+/* Hide page scrollbars only when `no-scroll` is applied to the body */
+body.no-scroll {
+  overflow: hidden;
+}
+
+

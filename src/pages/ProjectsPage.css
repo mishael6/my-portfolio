@@ -1,0 +1,221 @@
+.projects-section {
+    min-height: 100vh;
+    padding: 120px 60px 60px;
+}
+
+.projects-section::before {
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(74, 86, 226, 0.3), transparent 50%);
+    pointer-events: none;
+}
+
+.projects-section h2 {
+    font-size: 4rem;
+    background: black;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    font-weight: 800;
+    z-index: 1;
+}
+
+.projects-paragraph {
+    font-size: 1.3rem;
+    color: black;
+    margin-bottom: 60px;
+    z-index: 1;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.project-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.project-card::before {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 
+        0 20px 60px rgba(255, 255, 255, 0.4),
+        0 0 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(9, 9, 9, 0.5);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card h3 {
+    padding: 30px 30px 20px;
+    font-size: 1.8rem;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    text-align: left;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.project-image {
+    width: calc(100% - 40px);
+    height: 240px;
+    margin: 0 20px 25px;
+    overflow: hidden;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image-project {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: brightness(0.9);
+}
+
+.project-card:hover .image-project {
+    transform: scale(1.15) rotate(2deg);
+    filter: brightness(1);
+}
+
+.project-description {
+    padding: 0 30px 30px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.project-description p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* Glowing effect on hover */
+.project-card:hover .project-image {
+    box-shadow: 
+        0 15px 40px rgba(102, 126, 234, 0.5),
+        0 0 20px rgba(118, 75, 162, 0.3);
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #FC990F83;
+    color: black;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Add these at the end of your ProjectsPage.css */
+
+body.light-mode .projects-section {
+    background: #FC990F83;
+    background: linear-gradient(127deg,rgba(252, 153, 15, 1) 36%, rgba(255, 255, 255, 1) 57%);
+}
+
+body.light-mode .projects-section h2 {
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.light-mode .projects-paragraph {
+    color: white;
+}
+
+body.light-mode .project-card {
+    background: rgba(255, 255, 255, 0.21);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .project-card:hover {
+    box-shadow: 
+        0 20px 60px rgba(102, 126, 234, 0.3),
+        0 0 40px rgba(118, 75, 162, 0.2);
+}
+
+body.light-mode .project-card h3 {
+    background: black;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.light-mode .project-description p {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 100px 30px 40px;
+    }
+    
+    .projects-section h2 {
+        font-size: 3rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    
+    .project-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Add animation on scroll */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
