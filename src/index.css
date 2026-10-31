@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
   --bg: #050505;
@@ -12,7 +12,7 @@
   --max: 1120px;
   --nav-h: 84px;
   --font-sans: "Poppins", system-ui, sans-serif;
-  --font-display: "Instrument Serif", Georgia, serif;
+  --font-display: "Montserrat", sans-serif;
   --radius: 14px;
 }
 
