@@ -24,9 +24,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
+  width: 100%;
+  overflow-x: clip;
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text);
