@@ -1,52 +1,156 @@
-import React from 'react';
-import "./AboutPage.css"
-import logo from "../assets/logo.png"
-import Message from '../components/sendMessage';
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiPhp,
+  SiNodedotjs,
+  SiPython,
+  SiMysql,
+  SiGit,
+  SiVite,
+  SiFigma,
+} from "react-icons/si";
+import mediumshot from "../assets/mishael-portrait.png";
+import { site, skillGroups, timeline } from "../data/site";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import "./AboutPage.css";
 
-function About () {
 
-  const skills = [
-    { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-    { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-    { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-    { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-  ];
+const otherProjects = [
+  "Cenvy",
+  "GH Job Search",
+  "YKG Bookshop",
+  "Library Management System",
+  "Art Gallery · AmaliTech",
+  "Course Korrekt",
+  "xyzVote",
+  "La Creamy",
+  "My Joy Standard School",
+  "Ceema Academy",
+  "TRO landing page",
+  "Antwiplus",
+  "Bookmanager",
+  "Modern Art Gallery",
+  "Portfolio",
+];
+
+const skillIcons = {
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  JavaScript: SiJavascript,
+  HTML5: SiHtml5,
+  CSS3: SiCss3,
+  "React Native": SiReact,
+  PHP: SiPhp,
+  "Node.js": SiNodedotjs,
+  Python: SiPython,
+  MySQL: SiMysql,
+  Git: SiGit,
+  Vite: SiVite,
+  Figma: SiFigma,
+};
+
+const allSkills = skillGroups.flatMap((group) =>
+  group.items.map((item) => ({ item, category: group.label.toLowerCase() }))
+);
+
+function About() {
+  const pageRef = useRef(null);
+  useDocumentTitle("About");
 
   return (
-    <section className="about-section">
-      <div className="about-content">
-        <h1>About Me</h1>
-        <div className="about-paragraph">
-          <p>
-            I'm a software engineer skilled in React, JavaScript, HTML, CSS, PHP, Python, and Git. I build modern web applications with a focus on clean code and seamless user experiences.
+    <div className="page-shell about-page" ref={pageRef}>
+      <header className="about-hero">
+        <div>
+          <p className="eyebrow">About</p>
+          <h1 className="display">I build thoughtful software for everyday life.</h1>
+          <p className="muted about-lead">
+            I am {site.name}, a software engineer at Adventle Technologies and CEO of
+            DevSix Solutions and xyzVote, based in {site.location}. I hold a Diploma in
+            Information Technology from Kumasi Technical University and am now completing
+            a Computer Technology top-up there.
           </p>
+          <p className="muted about-lead">
+            Ananse is my main initiative: an EdTech company I am building to bring
+            ClassIQ, StudyIQ, and ScoreIQ to schools. WasteXpress is a DevSix Solutions
+            project developed alongside Ananse.
+          </p>
+          <Link to="/contact" className="btn btn-primary">
+            Let&apos;s build something useful
+          </Link>
         </div>
-        
-        <div className="skills-section">
-          <h2>Skills & Technologies</h2>
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <div key={index} className="skill-item">
-                <img src={skill.icon} alt={skill.name} className="skill-icon" />
-                <p>{skill.name}</p>
+        <div className="about-portrait">
+          <img src={mediumshot} alt={`${site.name} portrait`} />
+        </div>
+      </header>
+
+      <section>
+        <div className="section-heading">
+          <p className="eyebrow">Toolkit</p>
+          <h2>From interface to data and delivery</h2>
+        </div>
+        <div className="skills-marquee" role="region" aria-label="Technology skills">
+          <div className="skills-track">
+            {[0, 1].map((copy) => (
+              <div className="skills-set" key={copy} aria-hidden={copy === 1}>
+                {allSkills.map(({ item, category }) => {
+                  const SkillIcon = skillIcons[item];
+                  return (
+                    <span
+                      className={`skill-chip skill-icon-chip skill-${category}`}
+                      key={`${copy}-${item}`}
+                      role={copy === 0 ? "img" : undefined}
+                      aria-label={copy === 0 ? item : undefined}
+                      title={copy === 0 ? item : undefined}
+                    >
+                      <SkillIcon aria-hidden="true" />
+                      <span className="skill-label">{item}</span>
+                    </span>
+                  );
+                })}
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        <div className="message-button">
-          <Message />
+      <section className="about-projects">
+        <div className="section-heading">
+          <p className="eyebrow">Selected experience</p>
+          <h2>Other projects I&apos;ve worked on</h2>
         </div>
-      </div>
+        <ul className="about-project-list">
+          {otherProjects.map((project) => <li className="tag" key={project}>{project}</li>)}
+        </ul>
+      </section>
 
-      <div className="about-image">
-        <img src={logo} alt="logo" className="profile-image" />
-      </div>
-    </section>
+      <section>
+        <div className="section-heading">
+          <p className="eyebrow">Experience</p>
+          <h2>Work, leadership, and education</h2>
+        </div>
+        <ol className="timeline">
+          {timeline.map((item) => (
+            <li className="timeline-item" key={item.title}>
+              <div className="timeline-content">
+                <span className="timeline-period">{item.period}</span>
+                <h3>{item.title}</h3>
+                <p className="timeline-org">{item.org}</p>
+                <p className="muted">{item.detail}</p>
+              </div>
+              <span className="journey-marker" aria-hidden="true"><FaMapMarkerAlt /></span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+    </div>
   );
-};
+}
 
 export default About;

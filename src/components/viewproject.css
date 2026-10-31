@@ -9,14 +9,14 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(252, 153, 15, 1) 0%;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.12);
 }
 
 .view-project-btn:hover {
   background-color: whitesmoke;
   color: black;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(252, 153, 15, 1) 0%;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.18);
 }
 
 .view-project-btn:active {
