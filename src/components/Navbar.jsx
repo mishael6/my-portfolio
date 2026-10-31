@@ -51,7 +51,7 @@ function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav>
+    <nav className={isMenuOpen ? "mobile-menu-open" : ""}>
       <NavLink to="/" className="logo-link" onClick={closeMenu}>
         <img src={logo} alt="Mishael Osman Mensah" className="logo" />
       </NavLink>
@@ -65,7 +65,7 @@ function Navbar() {
         />
       )}
 
-      <ul className={`dashboard-nav ${isMenuOpen ? "active" : ""}`}>
+      <ul id="primary-navigation" className={`dashboard-nav ${isMenuOpen ? "active" : ""}`}>
         {links.map((link, index) => (
           <li key={link.to}>
             <NavLink
@@ -98,6 +98,7 @@ function Navbar() {
           onClick={() => setIsMenuOpen((open) => !open)}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
         >
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
