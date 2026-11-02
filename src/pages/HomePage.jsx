@@ -46,7 +46,7 @@ function Home() {
         <div className="hero-copy-wrap">
           <p className="availability"><span aria-hidden="true" /><span className="availability-label">Available for work</span></p>
           <p className="eyebrow hero-greeting"><span>Hello, I&apos;m</span><strong>{site.shortName}</strong></p>
-          <h1 className="display hero-name">I make ideas<br />work.</h1>
+          <h1 className="display hero-name"><span>I make ideas</span><span>work.</span></h1>
           <p className="hero-role">Software engineer <span>·</span> Kumasi, Ghana</p>
           <p className="hero-copy muted">I build websites and mobile apps that help solve everyday problems.</p>
           <div className="hero-actions">

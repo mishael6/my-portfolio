@@ -6,7 +6,8 @@
 .availability-label { line-height: 1; }
 .hero-greeting { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; color: var(--muted); font-size: .7rem; letter-spacing: .16em; }
 .hero-greeting strong { color: var(--text); font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.7rem); font-style: italic; font-weight: 400; letter-spacing: -.025em; text-transform: none; }
-.hero-name { max-width: 700px; font-size: clamp(3rem, 6.5vw, 6.25rem); margin: 0 0 16px; letter-spacing: -.055em; line-height: .98; }
+.hero-name { max-width: 700px; font-size: clamp(2.75rem, 5.4vw, 5rem); margin: 0 0 16px; letter-spacing: -.055em; line-height: .98; }
+.hero-name span { display: block; white-space: nowrap; }
 .hero-role { color: var(--muted); font-weight: 500; }
 .hero-role span { color: var(--accent); padding: 0 3px; }
 .hero-copy { max-width: 32rem; margin: 14px 0 22px; font-size: 1.02rem; line-height: 1.75; }
@@ -26,6 +27,6 @@
 .hero-glass-card--location span { display: flex; flex-direction: column; gap: 2px; }
 .hero-glass-card--location strong { font-size: .82rem; }
 .hero-glass-card--location small { color: var(--muted); font-size: .74rem; }
-@media (max-width: 900px) { .hero { grid-template-columns: .9fr 1.1fr; gap: 28px; min-height: 0; } .portrait-frame { width: min(118%, 620px); margin-right: -8%; transform: translateY(-44px); } .hero-backdrop-type { font-size: clamp(7rem, 15vw, 11.5rem); } .hero-name { font-size: clamp(3rem, 8vw, 5rem); } }
-@media (max-width: 680px) { .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 10px; } .hero-copy-wrap { order: 1; } .portrait-frame { justify-self: center; order: 0; width: min(108%, 500px); margin-right: 0; transform: translateY(-28px); margin-bottom: -30px; } .portrait { transform: translateY(36px); } .hero-backdrop-type { bottom: -58px; font-size: clamp(6.5rem, 27vw, 10rem); -webkit-text-stroke-width: 1.8px; } .hero-name { font-size: clamp(3.25rem, 14vw, 5.2rem); } .hero-glass-card--availability { top: 16%; right: 0; } .hero-glass-card--location { left: 0; bottom: 12%; } }
+@media (max-width: 900px) { .hero { grid-template-columns: .9fr 1.1fr; gap: 28px; min-height: 0; } .portrait-frame { width: min(118%, 620px); margin-right: -8%; transform: translateY(-44px); } .hero-backdrop-type { font-size: clamp(7rem, 15vw, 11.5rem); } .hero-name { font-size: clamp(2.75rem, 5.4vw, 4rem); } }
+@media (max-width: 680px) { .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 10px; } .hero-copy-wrap { order: 1; } .portrait-frame { justify-self: center; order: 0; width: min(108%, 500px); margin-right: 0; transform: translateY(-28px); margin-bottom: -30px; } .portrait { transform: translateY(36px); } .hero-backdrop-type { bottom: -58px; font-size: clamp(6.5rem, 27vw, 10rem); -webkit-text-stroke-width: 1.8px; } .hero-name { font-size: clamp(2.75rem, 12.5vw, 3.2rem); } .hero-glass-card--availability { top: 16%; right: 0; } .hero-glass-card--location { left: 0; bottom: 12%; } }
 @media (prefers-reduced-motion: reduce) { .hero-glass-card { animation: none; } }
