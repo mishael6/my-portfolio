@@ -351,9 +351,20 @@
 }
 
 @media (max-width: 800px) {
+  .contact-page {
+    width: min(var(--max), calc(100% - 40px));
+  }
+
   .contact-section {
     grid-template-columns: 1fr;
     gap: 32px;
+    min-width: 0;
+  }
+
+  .contact-content,
+  .message-form-container {
+    width: 100%;
+    min-width: 0;
   }
 
   .contact-content {
