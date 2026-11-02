@@ -150,7 +150,7 @@ function Contact() {
             <label htmlFor="message">Your message</label>
             <textarea id="message" name="message" rows="4" placeholder="Tell me a little about it…" minLength={10} maxLength={2000} required onInput={clearFieldValidation} />
             <button type="submit" className="btn btn-primary">
-              Send message <FaWhatsapp aria-hidden="true" />
+              Send message
             </button>
             {status === "whatsapp" ? (
               <p className="form-status success" role="status">
