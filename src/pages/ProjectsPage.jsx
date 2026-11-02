@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { FaArrowRight, FaExternalLinkAlt } from "react-icons/fa";
+import { FaArrowRight, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { featuredProject, projects } from "../data/projects";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import "./ProjectsPage.css";
@@ -41,13 +41,17 @@ function Projects() {
           <h1 className="display projects-title">Projects I&apos;ve <span>built.</span></h1>
           <p className="muted work-intro">Websites and apps I&apos;ve made to solve real problems.</p>
         </div>
-        <p className="work-count"><strong>{String(projects.length).padStart(2, "0")}</strong><span>projects<br />and counting</span></p>
+        <a className="work-count" href="https://github.com/mishael6" target="_blank" rel="noopener noreferrer" aria-label={`${projects.length} projects and counting — explore more on GitHub`}>
+          <strong>{String(projects.length).padStart(2, "0")}</strong>
+          <span className="work-count-label">projects<br />and counting</span>
+          <span className="work-count-link"><FaGithub aria-hidden="true" /><span>More ideas<br />in the making</span><FaArrowRight aria-hidden="true" /></span>
+        </a>
       </header>
 
       {featuredProject ? (
         <article className="featured">
           <div className="featured-image">
-            <img src={featuredProject.image} alt="" />
+            <img src={featuredProject.image} alt={`${featuredProject.title} website screenshot`} />
             <span className="featured-image-label">01 <i /> FEATURED PROJECT</span>
             <span className="featured-image-arrow" aria-hidden="true"><FaArrowRight /></span>
           </div>
@@ -76,20 +80,22 @@ function Projects() {
         {rest.map((project, index) => (
           <article className="project-card" key={project.slug}>
             <div className="project-image">
-              <img src={project.image} alt="" className="image-project" />
+              <img src={project.image} alt={`${project.title} website screenshot`} className="image-project" />
               <span className="project-index">{String(index + 2).padStart(2, "0")}</span>
               <span className="project-image-arrow" aria-hidden="true"><FaExternalLinkAlt /></span>
             </div>
             <div className="project-body">
               <div className="project-title-row"><h3>{project.title}</h3><span className="project-title-arrow" aria-hidden="true"><FaArrowRight /></span></div>
               <p className="muted">{project.outcome}</p>
-              <div className="tag-row">
-                {project.stack.map((item) => (
-                  <span className="tag" key={item}>
-                    {item}
-                  </span>
-                ))}
-              </div>
+              {project.stack.length > 0 ? (
+                <div className="tag-row">
+                  {project.stack.map((item) => (
+                    <span className="tag" key={item}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
               <ProjectLinks project={project} />
             </div>
           </article>
