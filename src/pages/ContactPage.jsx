@@ -8,6 +8,7 @@ import {
   FaLinkedin,
   FaMapPin,
   FaPhone,
+  FaPaperPlane,
   FaWhatsapp,
 } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
@@ -51,6 +52,13 @@ function Contact() {
 
   return (
     <div className="page-shell contact-page" ref={pageRef}>
+      <div className="contact-doodle" aria-hidden="true">
+        <span className="contact-doodle-orbit" />
+        <span className="contact-doodle-node contact-doodle-node--one" />
+        <span className="contact-doodle-node contact-doodle-node--two" />
+        <span className="contact-doodle-plane"><FaPaperPlane /></span>
+        <span className="contact-doodle-spark">✦</span>
+      </div>
       <header className="contact-heading">
         <div>
           <p className="eyebrow"><span className="contact-heading-dot" /> Contact</p>

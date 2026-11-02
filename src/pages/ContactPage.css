@@ -1,6 +1,119 @@
 .contact-page {
   --contact-line: color-mix(in srgb, var(--text) 13%, transparent);
   --contact-glass: color-mix(in srgb, var(--surface) 27%, transparent);
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-heading,
+.contact-section {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-doodle {
+  position: absolute;
+  z-index: 0;
+  top: 105px;
+  right: -16px;
+  width: min(36vw, 390px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  opacity: .72;
+}
+
+.contact-doodle::before {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--text) 8%, transparent), transparent 68%);
+  filter: blur(8px);
+}
+
+.contact-doodle-orbit {
+  position: absolute;
+  inset: 12%;
+  border: 1px dashed color-mix(in srgb, var(--text) 22%, transparent);
+  border-radius: 47% 53% 48% 52%;
+  transform: rotate(-24deg);
+  animation: contact-orbit-turn 48s linear infinite;
+}
+
+.contact-doodle-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 13%;
+  border: 1px solid color-mix(in srgb, var(--text) 7%, transparent);
+  border-radius: 50%;
+}
+
+.contact-doodle-node {
+  position: absolute;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--text);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--text) 9%, transparent);
+}
+
+.contact-doodle-node--one {
+  top: 20%;
+  right: 27%;
+}
+
+.contact-doodle-node--two {
+  bottom: 24%;
+  left: 18%;
+  width: 6px;
+  height: 6px;
+  opacity: .6;
+}
+
+.contact-doodle-plane {
+  position: absolute;
+  top: 39%;
+  left: 41%;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+  border-radius: 19px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 38%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text) 10%, transparent), 0 12px 35px rgba(0,0,0,.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 1.2rem;
+  transform: rotate(-12deg);
+  animation: contact-plane-float 4s ease-in-out infinite;
+}
+
+.contact-doodle-spark {
+  position: absolute;
+  top: 28%;
+  left: 22%;
+  color: var(--muted);
+  font-size: 1.2rem;
+  opacity: .7;
+  animation: contact-sparkle 3.2s ease-in-out infinite;
+}
+
+@keyframes contact-orbit-turn {
+  to { transform: rotate(336deg); }
+}
+
+@keyframes contact-plane-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+
+@keyframes contact-sparkle {
+  0%, 100% { opacity: .4; scale: .9; }
+  50% { opacity: .85; scale: 1.08; }
 }
 
 .contact-heading {
@@ -373,6 +486,13 @@
 }
 
 @media (max-width: 560px) {
+  .contact-doodle {
+    top: 135px;
+    right: -82px;
+    width: 270px;
+    opacity: .48;
+  }
+
   .contact-heading {
     align-items: start;
     flex-direction: column;
@@ -404,6 +524,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .contact-doodle-orbit,
+  .contact-doodle-plane,
+  .contact-doodle-spark {
+    animation: none;
+  }
+
   .contact-heading-note > a svg,
   .contact-card,
   .contact-card-arrow,

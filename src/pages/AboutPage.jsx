@@ -65,6 +65,16 @@ function About() {
 
   return (
     <div className="page-shell about-page" ref={pageRef}>
+      <div className="about-journey-doodle" aria-hidden="true">
+        <svg className="about-route-line" viewBox="0 0 380 340" fill="none">
+          <path d="M24 296C96 280 108 232 74 204C39 174 74 131 143 146C221 163 227 102 190 73C157 47 197 20 249 39C295 55 315 81 356 35" />
+          <circle cx="24" cy="296" r="5" />
+          <circle cx="143" cy="146" r="5" />
+          <circle cx="249" cy="39" r="5" />
+        </svg>
+        <span className="about-route-pin"><FaMapMarkerAlt /></span>
+        <span className="about-route-star">✦</span>
+      </div>
       <header className="about-hero">
         <div>
           <p className="eyebrow">About</p>
