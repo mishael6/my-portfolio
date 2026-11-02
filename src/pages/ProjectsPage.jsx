@@ -14,14 +14,14 @@ function ProjectLinks({ project }) {
           target={project.liveUrl.startsWith("http") ? "_blank" : undefined}
           rel="noopener noreferrer"
         >
-          Explore <FaExternalLinkAlt aria-hidden="true" />
+          View project <FaExternalLinkAlt aria-hidden="true" />
         </a>
       ) : (
-        <span className="project-coming-soon">In progress</span>
+        <span className="project-coming-soon">No demo yet</span>
       )}
       {project.githubUrl ? (
         <a className="project-link-secondary" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-          Source <FaExternalLinkAlt aria-hidden="true" />
+          View code <FaExternalLinkAlt aria-hidden="true" />
         </a>
       ) : null}
     </div>
@@ -37,9 +37,9 @@ function Projects() {
     <div className="page-shell projects-page" ref={pageRef}>
       <header className="work-heading">
         <div>
-          <p className="eyebrow"><span className="work-heading-dot" /> A little of what I do</p>
-          <h1 className="display projects-title">Selected <span>work.</span></h1>
-          <p className="muted work-intro">Digital products and ideas, made with care and built to be useful.</p>
+          <p className="eyebrow"><span className="work-heading-dot" /> My work</p>
+          <h1 className="display projects-title">Projects I&apos;ve <span>built.</span></h1>
+          <p className="muted work-intro">Websites and apps I&apos;ve made to solve real problems.</p>
         </div>
         <p className="work-count"><strong>{String(projects.length).padStart(2, "0")}</strong><span>projects<br />and counting</span></p>
       </header>
@@ -52,7 +52,7 @@ function Projects() {
             <span className="featured-image-arrow" aria-hidden="true"><FaArrowRight /></span>
           </div>
           <div className="featured-copy">
-            <p className="featured-overline"><span /> ANANSE · EDTECH</p>
+            <p className="featured-overline"><span /> ANANSE · EDUCATION</p>
             <h2>{featuredProject.title}</h2>
             <p className="muted">{featuredProject.blurb}</p>
             <div className="tag-row">
@@ -68,7 +68,7 @@ function Projects() {
       ) : null}
 
       <div className="work-grid-heading">
-        <div><p className="eyebrow">The collection</p><h2>More things I&apos;ve made</h2></div>
+        <div><p className="eyebrow">More projects</p><h2>Other things I&apos;ve built</h2></div>
         <span>{String(rest.length).padStart(2, "0")} PROJECTS</span>
       </div>
 

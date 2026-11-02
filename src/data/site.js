@@ -4,7 +4,7 @@ export const site = {
   role: "Software Engineer",
   roles: ["Software Engineer", "React Developer", "Mobile Builder"],
   pitch:
-    "I design and build web and mobile tools that make learning, identity, and work simpler — from QR attendance in ClassIQ to student record checks and local job search.",
+    "I build websites and mobile apps that make learning and everyday tasks easier, including school tools and a job search site for Ghana.",
   location: "Kumasi, Ghana",
   email: "mishosmanmensah660@gmail.com",
   phone: "+233 50 207 6920",
@@ -24,42 +24,42 @@ export const timeline = [
     title: "ClassIQ · Ananse",
     org: "ClassIQ · StudyIQ · ScoreIQ",
     detail:
-      "Started working on ClassIQ in June 2025 and continue building it as part of Ananse, my EdTech initiative to bring ClassIQ, StudyIQ, and ScoreIQ to schools.",
+      "Started building ClassIQ in June 2025 and still work on it today. It is part of Ananse, the education company I am building with StudyIQ and ScoreIQ for schools.",
   },
   {
     period: "Internship",
     title: "Frontend Developer Intern",
     org: "AmaliTech",
     detail:
-      "Built the Art Gallery website and worked on a Library Management System during my frontend development internship.",
+      "Built an art gallery website and helped create a system for managing library books during my web development internship.",
   },
   {
     period: "2026 · While studying",
     title: "Independent projects",
-    org: "Product design and development",
+    org: "Websites and apps",
     detail:
-      "After AmaliTech, I continued building my own projects while in school: StudyIQ, updates to ClassIQ, ScoreIQ, Course Korrekt, my portfolio, GH Job Search, YKG Bookshop, and more.",
+      "After AmaliTech, I built projects alongside my studies, including StudyIQ, ClassIQ, ScoreIQ, Course Korrekt, my portfolio, GH Job Search, and YKG Bookshop.",
   },
   {
     period: "Aug 2026",
     title: "Diploma in Information Technology",
     org: "Kumasi Technical University",
     detail:
-      "Completed my Diploma in Information Technology. I am now pursuing a top-up in Computer Technology at Kumasi Technical University.",
+      "Completed my Diploma in Information Technology and continued my studies in Computer Technology at Kumasi Technical University.",
   },
   {
     period: "Aug 2026 – Now",
     title: "CEO",
     org: "DevSix Solutions · xyzVote",
     detail:
-      "Started DevSix Solutions after school. WasteXpress is a project under DevSix, developed alongside Ananse.",
+      "Started DevSix Solutions after school. WasteXpress is one of its projects, alongside my work on Ananse.",
   },
   {
     period: "Oct 2026 – Now",
     title: "National Service · Software Engineer",
     org: "Adventle Technologies",
     detail:
-      "Started my national service as a Software Engineer at Adventle Technologies.",
+      "Began my national service as a software engineer at Adventle Technologies.",
   },
 ];
 

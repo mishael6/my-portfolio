@@ -68,17 +68,16 @@ function About() {
       <header className="about-hero">
         <div>
           <p className="eyebrow">About</p>
-          <h1 className="display">I build thoughtful software for everyday life.</h1>
+          <h1 className="display">I build websites and apps that make life easier.</h1>
           <p className="muted about-lead">
-            I am {site.name}, a software engineer at Adventle Technologies and CEO of
-            DevSix Solutions and xyzVote, based in {site.location}. I hold a Diploma in
-            Information Technology from Kumasi Technical University and am now completing
-            a Computer Technology top-up there.
+            I&apos;m {site.name}, a software engineer at Adventle Technologies and the
+            CEO of DevSix Solutions and xyzVote. I&apos;m based in {site.location}.
+            I completed a Diploma in Information Technology at Kumasi Technical
+            University and am now studying Computer Technology there.
           </p>
           <p className="muted about-lead">
-            Ananse is my main initiative: an EdTech company I am building to bring
-            ClassIQ, StudyIQ, and ScoreIQ to schools. WasteXpress is a DevSix Solutions
-            project developed alongside Ananse.
+            I&apos;m building Ananse, an education company that makes ClassIQ, StudyIQ,
+            and ScoreIQ for schools. WasteXpress is another project from DevSix Solutions.
           </p>
           <Link to="/contact" className="btn btn-primary">
             Let&apos;s build something useful
@@ -91,10 +90,10 @@ function About() {
 
       <section>
         <div className="section-heading">
-          <p className="eyebrow">Toolkit</p>
-          <h2>From interface to data and delivery</h2>
+          <p className="eyebrow">Tools I use</p>
+          <h2>Tools I use to build websites and apps</h2>
         </div>
-        <div className="skills-marquee" role="region" aria-label="Technology skills">
+        <div className="skills-marquee" role="region" aria-label="Skills and tools">
           <div className="skills-track">
             {[0, 1].map((copy) => (
               <div className="skills-set" key={copy} aria-hidden={copy === 1}>
@@ -121,8 +120,8 @@ function About() {
 
       <section className="about-projects">
         <div className="section-heading">
-          <p className="eyebrow">Selected experience</p>
-          <h2>Other projects I&apos;ve worked on</h2>
+          <p className="eyebrow">Other projects</p>
+          <h2>More projects I&apos;ve worked on</h2>
         </div>
         <ul className="about-project-list">
           {otherProjects.map((project) => <li className="tag" key={project}>{project}</li>)}
@@ -132,7 +131,7 @@ function About() {
       <section>
         <div className="section-heading">
           <p className="eyebrow">Experience</p>
-          <h2>Work, leadership, and education</h2>
+          <h2>My work, businesses, and education</h2>
         </div>
         <ol className="timeline">
           {timeline.map((item) => (

@@ -44,11 +44,11 @@ function Home() {
     <div className="page-shell home-page" ref={pageRef}>
       <section className="hero">
         <div className="hero-copy-wrap">
-          <p className="availability"><span aria-hidden="true" /><span className="availability-label">Open to opportunities</span></p>
+          <p className="availability"><span aria-hidden="true" /><span className="availability-label">Available for work</span></p>
           <p className="eyebrow hero-greeting"><span>Hello, I&apos;m</span><strong>{site.shortName}</strong></p>
-          <h1 className="display hero-name">I make ideas work.</h1>
+          <h1 className="display hero-name">I make ideas<br />work.</h1>
           <p className="hero-role">Software engineer <span>·</span> Kumasi, Ghana</p>
-          <p className="hero-copy muted">I build thoughtful web and mobile experiences for everyday life.</p>
+          <p className="hero-copy muted">I build websites and mobile apps that help solve everyday problems.</p>
           <div className="hero-actions">
             <Link to="/projects" className="btn btn-primary">View my work <FaArrowRight aria-hidden="true" /></Link>
             <Link to="/contact" className="btn btn-ghost">Say hello</Link>
@@ -63,7 +63,7 @@ function Home() {
         <div className="portrait-frame">
           <span className="hero-backdrop-type" aria-hidden="true">DEV<br />SIX</span>
           <img src={portrait} alt={`${site.name}, software engineer`} className="portrait" />
-          <div className="hero-glass-card hero-glass-card--availability"><span className="glass-status" /> Open to connect</div>
+          <div className="hero-glass-card hero-glass-card--availability"><span className="glass-status" /> Available to chat</div>
           <div className="hero-glass-card hero-glass-card--location"><FaMapMarkerAlt aria-hidden="true" /><span><strong>Based in</strong><small>Kumasi, Ghana</small></span></div>
         </div>
       </section>

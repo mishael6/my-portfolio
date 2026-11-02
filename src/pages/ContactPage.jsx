@@ -30,7 +30,7 @@ function Contact() {
 
     if (!serviceId || !templateId || !publicKey) {
       setStatus("error");
-      setError("Email is not configured. Write me directly instead.");
+      setError("The message form is not set up yet. Please email me directly.");
       return;
     }
 
@@ -54,15 +54,15 @@ function Contact() {
       <header className="contact-heading">
         <div>
           <p className="eyebrow"><span className="contact-heading-dot" /> Contact</p>
-          <h1 className="display contact-title">Have a good<br /><span>one in mind?</span></h1>
-          <p className="muted contact-intro">Tell me what you&apos;re thinking. I&apos;m open to thoughtful projects, collaborations, and conversations.</p>
+          <h1 className="display contact-title">Have a project<br /><span>in mind?</span></h1>
+          <p className="muted contact-intro">Tell me what you&apos;re working on. I&apos;m open to new projects, working with others, or answering your questions.</p>
         </div>
-        <div className="contact-heading-note"><span className="contact-note-icon"><FaEnvelope /></span><p>Have a project<br />in mind?</p><a href={`mailto:${site.email}`}>Let&apos;s talk <FaExternalLinkAlt aria-hidden="true" /></a></div>
+        <div className="contact-heading-note"><span className="contact-note-icon"><FaEnvelope /></span><p>Have a project<br />in mind?</p><a href={`mailto:${site.email}`}>Email me <FaExternalLinkAlt aria-hidden="true" /></a></div>
       </header>
 
       <section className="contact-section">
         <div className="contact-content">
-          <div className="contact-section-label"><span>01</span><p>Find me here</p></div>
+          <div className="contact-section-label"><span>01</span><p>Contact details</p></div>
           <a className="contact-card" href={`mailto:${site.email}`}>
             <span className="contact-icon"><FaEnvelope /></span>
             <div>
@@ -94,7 +94,7 @@ function Contact() {
           </a>
 
           <div className="social-area">
-            <p>Around the web</p>
+            <p>Follow my work</p>
             <div className="social-links">
               <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin />
@@ -113,14 +113,14 @@ function Contact() {
         </div>
 
         <div className="message-form-container">
-          <div className="form-heading"><div><p className="eyebrow">02 · Say hello</p><h2>Send a note</h2></div><span className="form-heading-arrow"><FaArrowRight /></span></div>
-          <p className="form-intro">A few details are all I need to get the conversation started.</p>
+          <div className="form-heading"><div><p className="eyebrow">02 · Say hello</p><h2>Send a message</h2></div><span className="form-heading-arrow"><FaArrowRight /></span></div>
+          <p className="form-intro">Share a few details and I&apos;ll get back to you.</p>
           <form ref={form} onSubmit={sendEmail} className="contact-form">
             <label htmlFor="name">Your name</label>
             <input type="text" id="name" name="user_name" placeholder="Jane Smith" required />
             <label htmlFor="email">Email address</label>
             <input type="email" id="email" name="user_email" placeholder="jane@company.com" required />
-            <label htmlFor="message">What would you like to discuss?</label>
+            <label htmlFor="message">Your message</label>
             <textarea id="message" name="message" rows="4" placeholder="Tell me a little about it…" required />
             <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
               {status === "sending" ? "Sending…" : <>Send message <FaArrowRight aria-hidden="true" /></>}
