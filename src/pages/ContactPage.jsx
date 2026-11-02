@@ -11,7 +11,6 @@ import {
   FaPaperPlane,
   FaWhatsapp,
 } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
 import { site } from "../data/site";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import "./ContactPage.css";
@@ -20,12 +19,10 @@ function Contact() {
   const form = useRef();
   const pageRef = useRef(null);
   const [status, setStatus] = useState("idle");
-  const [error, setError] = useState("");
   useDocumentTitle("Contact");
 
-  const sendEmail = (event) => {
+  const sendWhatsApp = (event) => {
     event.preventDefault();
-    if (status === "sending") return;
 
     const nameField = form.current.elements.user_name;
     const emailField = form.current.elements.user_email;
@@ -52,35 +49,24 @@ function Contact() {
     emailField.value = email;
     messageField.value = message;
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setStatus("error");
-      setError("The message form is not set up yet. Please email me directly.");
+    const whatsappUrl = new URL(site.socials.whatsapp);
+    whatsappUrl.searchParams.set(
+      "text",
+      `Hello Mishael, my name is ${name}. You can reach me at ${email}.\n\n${message}`,
+    );
+    const whatsappWindow = window.open(whatsappUrl.toString(), "_blank");
+    if (!whatsappWindow) {
+      window.location.assign(whatsappUrl.toString());
       return;
     }
-
-    setStatus("sending");
-    setError("");
-
-    emailjs
-      .sendForm(serviceId, templateId, form.current, publicKey)
-      .then(() => {
-        setStatus("success");
-        form.current.reset();
-      })
-      .catch(() => {
-        setStatus("error");
-        setError("Could not send. Try email or WhatsApp.");
-      });
+    if (whatsappWindow) whatsappWindow.opener = null;
+    setStatus("whatsapp");
+    form.current.reset();
   };
 
   const clearFieldValidation = (event) => {
     event.currentTarget.setCustomValidity("");
-    if (status === "error") setStatus("idle");
-    setError("");
+    if (status === "whatsapp") setStatus("idle");
   };
 
   return (
@@ -155,25 +141,20 @@ function Contact() {
 
         <div className="message-form-container">
           <div className="form-heading"><div><p className="eyebrow">02 · Say hello</p><h2>Send a message</h2></div><span className="form-heading-arrow"><FaArrowRight /></span></div>
-          <p className="form-intro">Share a few details and I&apos;ll get back to you.</p>
-          <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <p className="form-intro">Share a few details, then continue in WhatsApp to send your message.</p>
+          <form ref={form} onSubmit={sendWhatsApp} className="contact-form">
             <label htmlFor="name">Your name</label>
             <input type="text" id="name" name="user_name" placeholder="Arya Stack" autoComplete="name" minLength={2} maxLength={80} required onInput={clearFieldValidation} />
             <label htmlFor="email">Email address</label>
             <input type="email" id="email" name="user_email" placeholder="arya@company.com" autoComplete="email" maxLength={254} required onInput={clearFieldValidation} />
             <label htmlFor="message">Your message</label>
             <textarea id="message" name="message" rows="4" placeholder="Tell me a little about it…" minLength={10} maxLength={2000} required onInput={clearFieldValidation} />
-            <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
-              {status === "sending" ? "Sending…" : <>Send message <FaArrowRight aria-hidden="true" /></>}
+            <button type="submit" className="btn btn-primary">
+              Send message <FaWhatsapp aria-hidden="true" />
             </button>
-            {status === "success" ? (
+            {status === "whatsapp" ? (
               <p className="form-status success" role="status">
-                Sent. I’ll get back to you.
-              </p>
-            ) : null}
-            {status === "error" ? (
-              <p className="form-status error" role="alert">
-                {error}
+                WhatsApp is ready with your message. Press Send there to deliver it.
               </p>
             ) : null}
           </form>
