@@ -125,9 +125,9 @@ function Contact() {
           <p className="form-intro">Share a few details and I&apos;ll get back to you.</p>
           <form ref={form} onSubmit={sendEmail} className="contact-form">
             <label htmlFor="name">Your name</label>
-            <input type="text" id="name" name="user_name" placeholder="Jane Smith" required />
+            <input type="text" id="name" name="user_name" placeholder="Arya Stack" required />
             <label htmlFor="email">Email address</label>
-            <input type="email" id="email" name="user_email" placeholder="jane@company.com" required />
+            <input type="email" id="email" name="user_email" placeholder="arya@company.com" required />
             <label htmlFor="message">Your message</label>
             <textarea id="message" name="message" rows="4" placeholder="Tell me a little about it…" required />
             <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
