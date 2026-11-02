@@ -25,6 +25,33 @@ function Contact() {
 
   const sendEmail = (event) => {
     event.preventDefault();
+    if (status === "sending") return;
+
+    const nameField = form.current.elements.user_name;
+    const emailField = form.current.elements.user_email;
+    const messageField = form.current.elements.message;
+    const name = nameField.value.trim();
+    const email = emailField.value.trim();
+    const message = messageField.value.trim();
+
+    nameField.setCustomValidity(
+      name.length < 2 ? "Please enter a name with at least 2 characters." : "",
+    );
+    emailField.setCustomValidity(
+      email.length > 254 ? "Please use an email address under 255 characters." : "",
+    );
+    messageField.setCustomValidity(
+      message.length < 10
+        ? "Please enter a message with at least 10 characters."
+        : "",
+    );
+
+    if (!form.current.reportValidity()) return;
+
+    nameField.value = name;
+    emailField.value = email;
+    messageField.value = message;
+
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -48,6 +75,12 @@ function Contact() {
         setStatus("error");
         setError("Could not send. Try email or WhatsApp.");
       });
+  };
+
+  const clearFieldValidation = (event) => {
+    event.currentTarget.setCustomValidity("");
+    if (status === "error") setStatus("idle");
+    setError("");
   };
 
   return (
@@ -125,11 +158,11 @@ function Contact() {
           <p className="form-intro">Share a few details and I&apos;ll get back to you.</p>
           <form ref={form} onSubmit={sendEmail} className="contact-form">
             <label htmlFor="name">Your name</label>
-            <input type="text" id="name" name="user_name" placeholder="Arya Stack" required />
+            <input type="text" id="name" name="user_name" placeholder="Arya Stack" autoComplete="name" minLength={2} maxLength={80} required onInput={clearFieldValidation} />
             <label htmlFor="email">Email address</label>
-            <input type="email" id="email" name="user_email" placeholder="arya@company.com" required />
+            <input type="email" id="email" name="user_email" placeholder="arya@company.com" autoComplete="email" maxLength={254} required onInput={clearFieldValidation} />
             <label htmlFor="message">Your message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Tell me a little about it…" required />
+            <textarea id="message" name="message" rows="4" placeholder="Tell me a little about it…" minLength={10} maxLength={2000} required onInput={clearFieldValidation} />
             <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
               {status === "sending" ? "Sending…" : <>Send message <FaArrowRight aria-hidden="true" /></>}
             </button>
