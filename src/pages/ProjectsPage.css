@@ -253,7 +253,8 @@
 }
 
 .project-link-primary,
-.project-link-secondary {
+.project-link-secondary,
+.project-link-share {
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -267,6 +268,31 @@
 .project-link-secondary svg {
   font-size: .7rem;
   transition: transform .25s ease;
+}
+
+.project-link-share {
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, #25d366 35%, transparent);
+  border-radius: 999px;
+  color: color-mix(in srgb, #25d366 80%, var(--text));
+  transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.project-link-share svg {
+  font-size: 1rem;
+}
+
+.project-link-share:hover {
+  color: #25d366;
+  border-color: #25d366;
+  background: color-mix(in srgb, #25d366 9%, transparent);
+  transform: translateY(-2px);
+}
+
+.project-link-share:focus-visible {
+  outline: 2px solid #25d366;
+  outline-offset: 3px;
 }
 
 .project-link-primary:hover svg,

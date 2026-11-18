@@ -1,10 +1,14 @@
 import { useRef } from "react";
-import { FaArrowRight, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaArrowRight, FaExternalLinkAlt, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { featuredProject, projects } from "../data/projects";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import "./ProjectsPage.css";
 
 function ProjectLinks({ project }) {
+  const shareUrl = `https://mishaelsix.netlify.app/share/${project.slug}/`;
+  const shareText = `${project.title} — ${project.outcome}\n\n${shareUrl}`;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+
   return (
     <div className="project-links">
       {project.liveUrl ? (
@@ -24,6 +28,15 @@ function ProjectLinks({ project }) {
           View code <FaExternalLinkAlt aria-hidden="true" />
         </a>
       ) : null}
+      <a
+        className="project-link-share"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Share ${project.title} on WhatsApp`}
+      >
+        <FaWhatsapp aria-hidden="true" /> Share
+      </a>
     </div>
   );
 }
