@@ -144,7 +144,7 @@ function Contact() {
           <p className="form-intro">Share a few details, then continue in WhatsApp to send your message.</p>
           <form ref={form} onSubmit={sendWhatsApp} className="contact-form">
             <label htmlFor="name">Your name</label>
-            <input type="text" id="name" name="user_name" placeholder="Arya Stack" autoComplete="name" minLength={2} maxLength={80} required onInput={clearFieldValidation} />
+            <input type="text" id="name" name="user_name" placeholder="Arya Stark" autoComplete="name" minLength={2} maxLength={80} required onInput={clearFieldValidation} />
             <label htmlFor="email">Email address</label>
             <input type="email" id="email" name="user_email" placeholder="arya@company.com" autoComplete="email" maxLength={254} required onInput={clearFieldValidation} />
             <label htmlFor="message">Your message</label>

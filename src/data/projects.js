@@ -24,6 +24,30 @@ export const projects = [
     image: classiq,
   },
   {
+    slug: "la-creamy",
+    title: "LaCreamy",
+    featured: false,
+    blurb:
+      "A bakery website where customers can browse the menu and place orders for freshly made pastries.",
+    outcome: "Makes it easier for customers to explore and order baked goods.",
+    stack: [],
+    liveUrl: "https://lacreamycake.netlify.app",
+    githubUrl: null,
+    image: lacreamy,
+  },
+  {
+    slug: "xyzvote",
+    title: "xyzVote",
+    featured: false,
+    blurb:
+      "An event platform where people can vote and buy tickets for award shows. Organizers can run online and in-person events, with mobile money payments.",
+    outcome: "Helps event organizers manage voting and ticket sales.",
+    stack: [],
+    liveUrl: "https://xyzvote.com",
+    githubUrl: null,
+    image: xyzvote,
+  },
+  {
     slug: "atlantic-travel-consult",
     title: "Atlantic Travel Consult",
     featured: false,
@@ -46,30 +70,6 @@ export const projects = [
     liveUrl: "https://coursecorrekt.netlify.app",
     githubUrl: null,
     image: coursecorrekt,
-  },
-  {
-    slug: "xyzvote",
-    title: "xyzVote",
-    featured: false,
-    blurb:
-      "An event platform where people can vote and buy tickets for award shows. Organizers can run online and in-person events, with mobile money payments.",
-    outcome: "Helps event organizers manage voting and ticket sales.",
-    stack: [],
-    liveUrl: "https://xyzvote.com",
-    githubUrl: null,
-    image: xyzvote,
-  },
-  {
-    slug: "la-creamy",
-    title: "LaCreamy",
-    featured: false,
-    blurb:
-      "A bakery website where customers can browse the menu and place orders for freshly made pastries.",
-    outcome: "Makes it easier for customers to explore and order baked goods.",
-    stack: [],
-    liveUrl: "https://lacreamycake.netlify.app",
-    githubUrl: null,
-    image: lacreamy,
   },
   {
     slug: "ghana-job-search",
